@@ -1,0 +1,31 @@
+/* FloorNav Component */
+.floor-nav {
+  position: sticky;
+  top: var(--floor-tabs-nav-top, 146px);
+  align-self: flex-start;
+  min-width: var(--floor-tabs-nav-width, 200px);
+  max-width: var(--floor-tabs-nav-width, 200px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.floor-nav-xs {
+  min-width: var(--floor-nav-xs-width);
+  max-width: var(--floor-nav-xs-width);
+}
+.floor-nav-sm,
+.floor-nav-md {
+  --floor-nav-width: 100px;
+  min-width: var(--floor-nav-sm-width);
+  max-width: var(--floor-nav-sm-width);
+}
+
+.floor-nav-button {
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-sm);
+  text-align: left;
+}

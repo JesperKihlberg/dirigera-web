@@ -1,0 +1,57 @@
+.compact-room-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.compact-room-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  color: var(--color-text-secondary);
+}
+
+.compact-room-card-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.compact-room-card-devices {
+  --device-column-count: 1;
+  margin-top: var(--spacing-sm);
+  display: grid;
+  grid-template-columns: repeat(var(--device-column-count), 1fr);
+  gap: var(--spacing-md);
+}
+
+.compact-room-card-device {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  outline: none;
+  min-width: 0;
+}
+
+.compact-room-card-device:hover {
+  transform: scale(1.02);
+}
+
+.compact-room-card-device:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
+.compact-room-card-device:active {
+  transform: scale(0.98);
+}
+
+.compact-room-card-batteries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.compact-room-card-battery {
+  display: inline-block;
+}

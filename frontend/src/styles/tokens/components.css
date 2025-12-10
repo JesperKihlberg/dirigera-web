@@ -1,0 +1,191 @@
+/* Component Design Tokens - Component-specific tokens */
+:root {
+  /* Button */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-bg-hover: var(--color-primary-hover);
+  --button-primary-text: var(--color-text-on-primary);
+  --button-primary-border: var(--color-primary);
+  --button-padding-x: var(--spacing-md);
+  --button-padding-y: var(--spacing-sm);
+  --button-border-radius: var(--radius-md);
+  --button-font-weight: var(--font-weight-medium);
+  --button-border-width: 1px;
+  --button-transition: all 0.2s ease;
+  --button-disabled-opacity: 0.5;
+  --button-circle-size: 2.5rem;
+  --button-square-size: 3rem; 
+
+  /* Card */
+  --card-bg: var(--color-surface);
+  --card-bg-hover: var(--color-surface-hover);
+  --card-border: var(--color-border);
+  --card-border-width: 1px;
+  --card-border-radius: var(--radius-lg);
+  --card-padding: var(--spacing-md);
+  --card-shadow: var(--shadow-md);
+  --card-transition: all 0.3s ease;
+
+  /* Input */
+  --input-bg: var(--color-background-elevated);
+  --input-bg-disabled: var(--color-gray-100);
+  --input-border-color: var(--color-border);
+  --input-border-hover: var(--color-gray-400);
+  --input-border-focus: var(--color-primary);
+  --input-border-error: var(--color-error);
+  --input-text-color: var(--color-text-primary);
+  --input-placeholder-color: var(--color-text-tertiary);
+  --input-focus-shadow: rgba(59, 130, 246, 0.1);
+  --input-error-shadow: rgba(239, 68, 68, 0.1);
+  --input-padding-x: var(--spacing-md);
+  --input-padding-y: var(--spacing-sm);
+  --input-border-radius: var(--radius-md);
+
+  /* Form */
+  --form-item-gap: var(--spacing-md);
+  --form-inline-gap: var(--spacing-sm);
+  --form-label-gap: var(--spacing-xs);
+  --form-label-color: var(--color-text-primary);
+  --form-error-color: var(--color-error);
+
+  /* Modal */
+  --modal-bg: var(--color-background-elevated);
+  --modal-overlay-bg: rgba(0, 0, 0, 0.45);
+  --modal-overlay-blur: 2px;
+  --modal-border-radius: var(--radius-lg);
+  --modal-padding: var(--spacing-xl);
+  --modal-padding-x: var(--spacing-xl);
+  --modal-padding-y: var(--spacing-md);
+  --modal-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  --modal-z-index: var(--z-index-modal);
+  --modal-wrap-padding: var(--spacing-md);
+  --modal-header-padding: var(--spacing-md) var(--spacing-xl);
+  --modal-body-padding: var(--spacing-xl);
+  --modal-footer-padding: 0.625rem var(--spacing-md); /* 10px 16px */
+  --modal-footer-gap: var(--spacing-sm);
+  --modal-close-size: 1.5rem; /* 24px */
+
+  /* Device Card */
+  --device-card-bg: var(--card-bg);
+  --device-card-bg-hover: var(--card-bg-hover);
+  --device-card-border: var(--card-border);
+  --device-card-border-radius: var(--card-border-radius);
+  --device-card-padding: var(--card-padding);
+  --device-card-shadow: var(--card-shadow);
+
+  /* Room Card */
+  --room-card-bg: var(--card-bg);
+  --room-card-bg-hover: var(--card-bg-hover);
+  --room-card-border: var(--card-border);
+  --room-card-border-radius: var(--card-border-radius);
+  --room-card-padding: var(--card-padding);
+  --room-card-shadow: var(--card-shadow);
+
+  /* Header */
+  --header-bg: var(--color-background);
+  --header-border: var(--color-border);
+  --header-height: 64px;
+  --header-padding: var(--spacing-md);
+  --header-z-index: var(--z-index-sticky);
+
+  /* Tabs */
+  --tabs-border: var(--color-border);
+  --tabs-active-border: var(--color-primary);
+  --tabs-active-text: var(--color-primary);
+  --tabs-text: var(--color-text-secondary);
+  --tabs-hover-text: var(--color-text-primary);
+
+  /* Scenes Component */
+  --scenes-list-gap: var(--spacing-sm);
+  --scenes-list-title-size: var(--font-size-md);
+  --scene-button-min-height: 40px;
+  --scene-button-padding: var(--spacing-sm) var(--spacing-md);
+
+  /* Device Control */
+  --device-control-padding: var(--spacing-sm);
+  --device-control-gap: var(--spacing-xs);
+  --device-icon-size: 1.5rem; /* 24px */
+  --device-image-size: 3.125rem; /* 50px */
+  --device-image-border-width: 0.25rem; /* 4px */
+  --device-image-border-radius: var(--radius-lg);
+  --device-image-bg: var(--color-surface);
+  --device-icon-border-color: var(--color-border);
+  --device-icon-bg: var(--color-surface);
+  --device-icon-off-color: var(--color-text-disabled);
+  --device-unreachable-opacity: 0.5;
+  --device-unreachable-overlay: rgba(255, 0, 0, 0.4);
+  --device-unreachable-slash-width: 18.75rem; /* 300px */
+  --device-unreachable-slash-height: 0.25rem; /* 4px */
+  --device-name-font-size: var(--font-size-xs);
+  --device-slider-min-width: 5rem; /* 80px */
+  --device-slider-max-width: 9.375rem; /* 150px */
+
+  /* Battery Indicator */
+  --battery-low-color: var(--color-warning);
+  --battery-critical-color: var(--color-error);
+  --battery-good-color: var(--color-success);
+  --battery-threshold-low: 20;
+  --battery-threshold-critical: 10;
+  --battery-modal-icon-size: 3rem; /* 48px */
+  --battery-modal-content-size: var(--font-size-lg);
+
+  /* Switch */
+  --switch-width: 2rem; /* 44px */
+  --switch-height: 1rem; /* 22px */
+  --switch-bg: var(--color-border-light);
+  --switch-bg-checked: var(--color-primary);
+  --switch-handle-size: 0.75rem; /* 18px */
+  --switch-handle-offset: 0.125rem; /* 2px */
+  --switch-handle-bg: var(--color-text-primary);
+  --switch-border-radius: var(--switch-height);
+  --switch-transition: 0.3s;
+  --switch-disabled-opacity: 0.5;
+
+  /* Slider */
+  --slider-track-height: 0.25rem; /* 4px */
+  --slider-track-bg: var(--color-border);
+  --slider-track-bg-active: var(--color-primary);
+  --slider-track-border-radius: var(--radius-sm);
+  --slider-thumb-size: 0.875rem; /* 14px */
+  --slider-thumb-bg: var(--color-primary);
+  --slider-thumb-border: 1px solid var(--color-text-primary);
+  --slider-thumb-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  --slider-thumb-hover-shadow: 0 0 0 6px rgba(22, 119, 255, 0.1);
+  --slider-thumb-active-shadow: 0 0 0 8px rgba(22, 119, 255, 0.2);
+  --slider-container-padding: 0 0; /* 4px 0 */
+  --slider-wrapper-padding: 0 0;
+  --slider-disabled-opacity: 0.5;
+  --slider-tooltip-offset: -2rem; /* -32px */
+  --slider-tooltip-bg: rgba(0, 0, 0, 0.75);
+  --slider-tooltip-padding: 0.25rem var(--spacing-sm);
+  --slider-tooltip-border-radius: var(--radius-md);
+  --slider-tooltip-font-size: var(--font-size-xs);
+  --slider-tooltip-arrow-size: 0.25rem; /* 4px */
+  --slider-marks-margin-top: var(--spacing-sm);
+
+  /* Custom Slider (Color & Light Controls) */
+  --custom-slider-track-height: 1rem; /* 8px */
+  --custom-slider-track-border-radius: var(--radius-md);
+  --custom-slider-thumb-height: 1rem; /* 20px */
+  --custom-slider-thumb-width: 1rem; /* 20px */
+  --custom-slider-thumb-margin-top: 2px;
+  --custom-slider-thumb-bg: white;
+  --custom-slider-thumb-border: 3px solid rgba(0, 0, 0, 0.2);
+  --custom-slider-thumb-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --custom-slider-thumb-hover-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --custom-slider-thumb-active-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.15), 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  /* Utils */
+  --skeleton-line-height: 1rem; /* 16px */
+  --skeleton-line-last-width: 60%;
+
+  /* Floor Nav */
+  --floor-nav-xs-width: 50px;
+  --floor-nav-sm-width: 100px;
+
+  /* Result */
+  --result-padding: var(--spacing-2xl);
+  --result-icon-size: 4.5rem; /* 72px */
+  --result-icon-margin: var(--spacing-lg);
+}

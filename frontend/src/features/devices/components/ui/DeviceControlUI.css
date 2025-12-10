@@ -1,0 +1,22 @@
+.device-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 12px);
+}
+
+.device-control-row {
+  width: 100%;
+}
+
+.device-control-name {
+  font-size: var(--device-name-font-size);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.device-control-slider {
+  min-width: var(--device-slider-min-width);
+  max-width: var(--device-slider-max-width);
+}

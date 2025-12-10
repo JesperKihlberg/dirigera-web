@@ -1,0 +1,28 @@
+/* FloorSection Component */
+.floor-section {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  
+  /* Snap immediately to each section */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+    
+  /* Full viewport height to fit container */
+  min-height: 100vh;
+}
+
+.floor-section-active {
+  background-color: var(--color-primary-bg-hover);
+}
+
+.floor-section-title {
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--floor-tabs-title-gap, 12px);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
