@@ -4,8 +4,6 @@ import { CompactRoomCardUI } from "./CompactRoomCardUI";
 import { ScenesUI } from "@/features/scenes/components/ui/ScenesUI";
 import type { Device } from "@/graphql.types";
 import { FloorPlanUI } from "./FloorPlanUI";
-import type { FloorPlanConfig } from "@jesperkihlberg/floor-plan";
-import floorsConfig from "@jesperkihlberg/floor-plan/floors-config.json";
 
 /**
  * FloorSectionUI is a pure presentational component that displays:
@@ -77,9 +75,7 @@ const defaultScenes = (
   />
 );
 
-const defaultFloorPlan = (
-  <FloorPlanUI config={floorsConfig.floors[1] as FloorPlanConfig} scale={0.8} />
-);
+const defaultFloorPlan = <FloorPlanUI imgSrc="" />;
 
 const defaultRooms = [
   (defaultCollapsed: boolean) => (

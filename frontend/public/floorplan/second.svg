@@ -1,0 +1,53 @@
+<svg width="352.2" height="459" viewBox="-10 -10 607 785" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <rect x="0" y="0" width="587" height="645" fill="#e8f4f8" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="293.5" y="312.5" font-size="16" text-anchor="middle" font-weight="bold">Åbent rum</text>
+        <text x="293.5" y="332.5" font-size="12" text-anchor="middle">487 × 640</text>
+    </g>
+    <g>
+        <rect x="332" y="647" width="250" height="100" fill="#ffe4e1" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="457" y="687" font-size="16" text-anchor="middle" font-weight="bold"></text>
+        <text x="457" y="707" font-size="12" text-anchor="middle"></text>
+    </g>
+    <g>
+        <rect x="0" y="651" width="235" height="90" fill="#d3d3d3" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="117.5" y="686" font-size="16" text-anchor="middle" font-weight="bold"></text>
+        <text x="117.5" y="706" font-size="12" text-anchor="middle"></text>
+    </g>
+    <g>
+        <rect x="25" y="650" width="235" height="94" fill="#d3d3d3" stroke="#1a1a1a"></rect>
+        <defs>
+            <marker id="arrow-0" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="18" markerHeight="18" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+            </marker>
+        </defs>
+        <line x1="25" y1="697" x2="142.5" y2="697" stroke="black" marker-end="url(#arrow-0)"></line>
+        <line x1="25" y1="650" x2="25" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="54.375" y1="650" x2="54.375" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="83.75" y1="650" x2="83.75" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="113.125" y1="650" x2="113.125" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="142.5" y1="650" x2="142.5" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="171.875" y1="650" x2="171.875" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="201.25" y1="650" x2="201.25" y2="744" stroke="#666" stroke-width="1.5"></line>
+        <line x1="230.625" y1="650" x2="230.625" y2="744" stroke="#666" stroke-width="1.5"></line>
+    </g>
+    <rect id="outline-rect" x="0" y="0" width="587" height="749" fill="none" stroke="#1a1a1a" stroke-width="12"></rect>
+    <text x="293" y="735" font-size="14" font-weight="bold" fill="#d00" text-anchor="start">587 cm</text>
+    <text x="570" y="374" font-size="14" font-weight="bold" fill="#d00" text-anchor="start" transform="rotate(90 570 374)">749 cm</text>
+    <g class="door" transform="translate(400, 647) rotate(-90)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="door" transform="translate(280, 647) rotate(90)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="window">
+        <rect x="581" y="200" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="581" y="400" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+</svg>

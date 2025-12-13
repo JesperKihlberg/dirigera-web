@@ -1,12 +1,9 @@
 import { Card } from "@/components/ui";
-import { FloorPlanRenderer } from "@jesperkihlberg/floor-plan";
-import type { FloorPlanConfig } from "@jesperkihlberg/floor-plan";
 
 import "./FloorPlanUI.css";
 
 export interface FloorPlanUIProps {
-  config: FloorPlanConfig;
-  scale?: number | undefined;
+  imgSrc: string;
   className?: string | undefined;
   defaultCollapsed?: boolean;
 }
@@ -20,8 +17,7 @@ export interface FloorPlanUIProps {
  * @param className - Optional CSS class name for styling
  */
 export function FloorPlanUI({
-  config,
-  scale = 1,
+  imgSrc,
   className,
   defaultCollapsed = false,
 }: FloorPlanUIProps) {
@@ -34,11 +30,7 @@ export function FloorPlanUI({
       collapsible
       defaultCollapsed={defaultCollapsed || isMobile}
     >
-      <FloorPlanRenderer
-        config={config}
-        scale={scale}
-        className="floor-plan-renderer-svg"
-      />
+      <img alt="Floor Plan" src={imgSrc} className="floor-plan-renderer-svg" />
     </Card>
   );
 }

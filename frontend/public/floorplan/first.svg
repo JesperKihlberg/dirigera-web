@@ -1,0 +1,107 @@
+<svg width="496.79999999999995" height="459" viewBox="-10 -10 1050 785" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <rect x="0" y="0" width="330" height="282" fill="#e3d5ca" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="165" y="131" font-size="16" text-anchor="middle" font-weight="bold">Værelse</text>
+        <text x="165" y="151" font-size="12" text-anchor="middle">282 × 330</text>
+    </g>
+    <g>
+        <rect x="330" y="0" width="99" height="131" fill="#f0efeb" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="379.5" y="55.5" font-size="16" text-anchor="middle" font-weight="bold">Disp.</text>
+        <text x="379.5" y="75.5" font-size="12" text-anchor="middle">99×131</text>
+    </g>
+    <g>
+        <rect x="330" y="131" width="99" height="302" fill="#dfe7fd" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="379.5" y="272" font-size="16" text-anchor="middle" font-weight="bold">Gang</text>
+        <text x="379.5" y="292" font-size="12" text-anchor="middle">302 × 99</text>
+    </g>
+    <g>
+        <rect x="0" y="282" width="330" height="151" fill="#b8dbd9" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="165" y="347.5" font-size="16" text-anchor="middle" font-weight="bold">Bad</text>
+        <text x="165" y="367.5" font-size="12" text-anchor="middle">151 × 330</text>
+    </g>
+    <g>
+        <rect x="0" y="433" width="430" height="332" fill="#f1f1f1" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="215" y="589" font-size="16" text-anchor="middle" font-weight="bold">Repos</text>
+        <text x="215" y="609" font-size="12" text-anchor="middle">430 × 323</text>
+    </g>
+    <g>
+        <rect x="429" y="0" width="395" height="400" fill="#d4a5a5" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="626.5" y="190" font-size="16" text-anchor="middle" font-weight="bold">Værelse</text>
+        <text x="626.5" y="210" font-size="12" text-anchor="middle">395 × 390</text>
+    </g>
+    <g>
+        <rect x="429" y="400" width="395" height="365" fill="#d4a5a5" stroke="#1a1a1a" stroke-width="8"></rect>
+        <text x="626.5" y="572.5" font-size="16" text-anchor="middle" font-weight="bold">Værelse</text>
+        <text x="626.5" y="592.5" font-size="12" text-anchor="middle">355 × 390</text>
+    </g>
+    <g>
+        <rect x="90" y="674" width="225" height="90" fill="#d3d3d3" stroke="#1a1a1a"></rect>
+        <defs>
+            <marker id="arrow-0" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="18" markerHeight="18" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+            </marker>
+        </defs>
+        <line x1="90" y1="719" x2="202.5" y2="719" stroke="black" marker-end="url(#arrow-0)"></line>
+        <line x1="90" y1="674" x2="90" y2="764" stroke="#666" stroke-width="1.5"></line>
+        <line x1="122.14285714285714" y1="674" x2="122.14285714285714" y2="764" stroke="#666" stroke-width="1.5"></line>
+        <line x1="154.28571428571428" y1="674" x2="154.28571428571428" y2="764" stroke="#666" stroke-width="1.5"></line>
+        <line x1="186.42857142857144" y1="674" x2="186.42857142857144" y2="764" stroke="#666" stroke-width="1.5"></line>
+        <line x1="218.57142857142858" y1="674" x2="218.57142857142858" y2="764" stroke="#666" stroke-width="1.5"></line>
+        <line x1="250.71428571428572" y1="674" x2="250.71428571428572" y2="764" stroke="#666" stroke-width="1.5"></line>
+        <line x1="282.8571428571429" y1="674" x2="282.8571428571429" y2="764" stroke="#666" stroke-width="1.5"></line>
+    </g>
+    <path id="outline-path" d="M0,0 h824 v765 h-824 z" fill="none" stroke="#1a1a1a" stroke-width="12"></path>
+    <text x="414" y="750" font-size="14" font-weight="bold" fill="#d00" text-anchor="start">828 cm</text>
+    <text x="810" y="382" font-size="14" font-weight="bold" fill="#d00" text-anchor="start" transform="rotate(90 810 382)">765 cm</text>
+    <g class="door" transform="translate(330, 200) scale(-1, 1) scale(1,-1)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="door" transform="translate(330, 370) scale(-1, 1) scale(1,-1)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="door" transform="translate(429, 300) scale(1,-1)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="door" transform="translate(389, 131) rotate(-90) scale(1,-1)">
+        <line x1="0" y1="-30" x2="0" y2="30" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,30 A60,60 0 0 0 60,-30" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-30" x2="60" y2="-30" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="door" transform="translate(379, 433) rotate(-90) scale(1,-1)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="door" transform="translate(429, 530)">
+        <line x1="0" y1="-40" x2="0" y2="40" stroke="#fff" stroke-width="10"></line>
+        <path d="M0,40 A80,80 0 0 0 80,-40" fill="none" stroke="#333" stroke-width="2"></path>
+        <line x1="0" y1="-40" x2="80" y2="-40" stroke="#333" stroke-width="2"></line>
+    </g>
+    <g class="window">
+        <rect x="-6" y="90" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="-6" y="310" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="-6" y="570" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="820" y="50" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="820" y="250" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="820" y="430" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+    <g class="window">
+        <rect x="820" y="630" width="12" height="100" fill="#fff" stroke="#000" stroke-width="2"></rect>
+    </g>
+</svg>

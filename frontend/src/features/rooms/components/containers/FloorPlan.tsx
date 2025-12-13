@@ -1,7 +1,4 @@
-import { useFloors } from "@/hooks";
 import { FloorPlanUI } from "../ui/FloorPlanUI";
-import floorsConfig from "@jesperkihlberg/floor-plan/floors-config.json";
-import type { FloorPlanConfig } from "@jesperkihlberg/floor-plan";
 
 export interface FloorPlanProps {
   floorId: string;
@@ -17,31 +14,18 @@ export interface FloorPlanProps {
  * @param scale - Optional scale factor for the floor plan (default: 0.8)
  * @param className - Optional CSS class name for styling
  */
-export function FloorPlan({ floorId, scale = 0.8, className }: FloorPlanProps) {
-  const { getFloorById, totalFloorCount } = useFloors();
+export function FloorPlan({ floorId, className }: FloorPlanProps) {
+  const floorSources: Record<string, string> = {
+    "second-floor": "/floorplan/second.svg",
+    "first-floor": "/floorplan/first.svg",
+    "ground-floor": "/floorplan/ground.svg",
+    basement: "/floorplan/basement.svg",
+  };
 
-  const floor = getFloorById(floorId);
+  const imgSrc = floorSources[floorId];
 
-  if (!floor) {
-    return null;
+  if (!imgSrc) {
+    return <div>Floor plan not found for floor ID: {floorId}</div>;
   }
-
-  // Get the floor index to look up the correct config
-  // The config is stored in reverse order (top floor first in array)
-  const floorIndex = floor.order;
-  const configIndex = totalFloorCount - 1 - floorIndex;
-
-  const config = floorsConfig.floors[configIndex] as FloorPlanConfig;
-
-  if (!config) {
-    return null;
-  }
-
-  return (
-    <FloorPlanUI
-      config={config}
-      scale={scale}
-      {...(className && { className })}
-    />
-  );
+  return <FloorPlanUI imgSrc={imgSrc} {...(className && { className })} />;
 }
