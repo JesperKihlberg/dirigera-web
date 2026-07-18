@@ -27,7 +27,7 @@ export function CompactRoomCard({
 }: CompactRoomCardProps) {
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [toggleLoading, setToggleLoading] = useState(false);
-  const { getRoomIcon } = useRoomConfig();
+  const { getRoomIcon, getRoomConfig } = useRoomConfig();
 
   const [setIsOn] = useMutation<SetIsOnMutation, SetIsOnMutationVariables>(
     SET_IS_ON_MUTATION
@@ -79,11 +79,12 @@ export function CompactRoomCard({
 
   const renderScenes = scenes ?? <Scenes scope="room" scopeId={room.id} />;
   const roomIcon = getRoomIcon(room.id);
+  const roomName = getRoomConfig(room.id)?.name ?? room.name;
 
   return (
     <>
       <CompactRoomCardUI
-        roomName={room.name}
+        roomName={roomName}
         roomIcon={roomIcon}
         devices={room.devices}
         scenes={renderScenes}

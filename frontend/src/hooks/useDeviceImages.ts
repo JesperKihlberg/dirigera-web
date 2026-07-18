@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
+import { adminFetch } from "@/lib/adminApi";
 
-type DeviceImageConfig = Record<string, string>;
+interface DeviceImageEntry {
+  url: string;
+  contentType: string;
+  uploadedAt: string;
+}
+
+type DeviceImageConfig = Record<string, DeviceImageEntry>;
 
 export function useDeviceImages() {
   const [config, setConfig] = useState<DeviceImageConfig>({});
@@ -11,25 +18,9 @@ export function useDeviceImages() {
     const loadConfig = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/device-images.config.json");
+        const data = await adminFetch<DeviceImageConfig>("/device-images");
 
-        if (!response.ok) {
-          throw new Error(
-            `Failed to load device images config: ${response.statusText}`
-          );
-        }
-
-        const data = await response.json();
-
-        // Filter out comment fields (keys starting with underscore)
-        const cleanedConfig: DeviceImageConfig = {};
-        Object.keys(data).forEach((key) => {
-          if (!key.startsWith("_")) {
-            cleanedConfig[key] = data[key];
-          }
-        });
-
-        setConfig(cleanedConfig);
+        setConfig(data);
         setError(null);
       } catch (err) {
         console.warn("Could not load device images config:", err);
@@ -44,10 +35,7 @@ export function useDeviceImages() {
   }, []);
 
   const getDeviceImage = (deviceId: string): string | undefined => {
-    const filename = config[deviceId];
-    if (!filename) return undefined;
-
-    return `/devices/${filename}`;
+    return config[deviceId]?.url;
   };
 
   return {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "@/components/ui";
 import { BsFillHouseFill } from "react-icons/bs";
+import { MdAdminPanelSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Logout } from "@/features/auth";
 
@@ -27,6 +28,19 @@ export function LayoutHeader({
             {title}
           </Link>
         </h1>
+      </Col>
+      <Col flex="none">
+        <Link
+          to="admin"
+          title="Admin"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: 8,
+          }}
+        >
+          <MdAdminPanelSettings size={24} />
+        </Link>
       </Col>
       <Col flex="none">
         <div className="root-layout-logout">

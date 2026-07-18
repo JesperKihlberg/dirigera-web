@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { adminFetch } from "@/lib/adminApi";
 
 export interface Floor {
   id: string;
@@ -21,18 +22,7 @@ export function useFloors() {
     const loadConfig = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/floors.config.json");
-
-        if (!response.ok) {
-          // If config doesn't exist, just use empty floors (no grouping)
-          console.info("No floors config found, rooms will not be grouped");
-          setFloors([]);
-          setError(null);
-          setIsLoading(false);
-          return;
-        }
-
-        const data: FloorConfig = await response.json();
+        const data = await adminFetch<FloorConfig>("/floors");
 
         // Sort floors by order
         const sortedFloors = [...data.floors].sort((a, b) => b.order - a.order);

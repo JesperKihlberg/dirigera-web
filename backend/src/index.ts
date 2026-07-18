@@ -12,6 +12,8 @@ import { apolloServer } from "./graphql/server.ts";
 import { getContextFunction } from "./graphql/context.ts";
 import { verify } from "./jwt.ts";
 import { fileURLToPath } from "url";
+import { getPool } from "./db/pool.ts";
+import { createAdminRouter } from "./admin/router.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -68,6 +70,14 @@ async function start() {
       context: getContextFunction(client),
     })
   );
+
+  app.use(
+    "/api/devices/images",
+    express.static(tsEnv.stringOrThrow("DEVICE_IMAGE_DIR"), {
+      maxAge: "1 day",
+    })
+  );
+  app.use("/api/admin", createAdminRouter(client, getPool()));
 
   httpServer.listen(port, () => {
     console.log(`Server is listening on port ${port}`);

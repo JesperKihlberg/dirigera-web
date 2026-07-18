@@ -8,17 +8,13 @@ services:
       - .:/opt/app:delegated
     working_dir: /opt/app
     command: npm run watch -w backend
-    ports:
-      - 4000:4000
+    network_mode: host
   frontend:
     image: node:24
     volumes:
       - .:/opt/app:delegated
     working_dir: /opt/app
     command: npm run watch -w frontend
-    ports:
-      - 3000:3000
     depends_on:
       - backend
-    environment:
-      - BACKEND_URL=http://backend:4000
+    network_mode: host
