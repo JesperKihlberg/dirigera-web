@@ -1,10 +1,7 @@
 .root-layout-logout {
   display: flex;
-  align-items: flex-end;
-  position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  z-index: 101;
+  align-items: center;
+  height: 100%;
 }
 
 .root-layout-content {
