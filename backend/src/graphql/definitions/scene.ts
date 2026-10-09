@@ -1,4 +1,5 @@
 import { gql } from "graphql-tag";
+import type { Scene } from "dirigera";
 import type { Resolvers } from "../resolvers.gen.ts";
 
 export const typeDefs = gql`
@@ -16,15 +17,19 @@ export const typeDefs = gql`
   }
 `;
 
+export function getUserScenes(scenes: Scene[]) {
+  return scenes
+    .filter((scene) => scene.type === "userScene")
+    .map((scene) => ({
+      id: scene.id,
+      name: scene.info.name,
+    }));
+}
+
 export const resolvers: Resolvers = {
   Query: {
     scenes: async (_, __, { homeState: { scenes } }) => {
-      return scenes
-        .filter((scene) => scene.type === "userScene")
-        .map((scene) => ({
-          id: scene.id,
-          name: scene.info.name,
-        }));
+      return getUserScenes(scenes);
     },
   },
   Mutation: {

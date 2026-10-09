@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
+import { adminFetch } from "@/lib/adminApi";
 
 export interface SceneScope {
   house: string[];
@@ -19,24 +20,7 @@ export function useSceneScopes() {
     const loadConfig = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/scenes.config.json");
-
-        if (!response.ok) {
-          // If config doesn't exist, use empty config (all scenes everywhere)
-          console.info(
-            "No scenes config found, all scenes will show everywhere"
-          );
-          setConfig({
-            house: [],
-            floors: {},
-            rooms: {},
-          });
-          setError(null);
-          setIsLoading(false);
-          return;
-        }
-
-        const data = await response.json();
+        const data = await adminFetch<SceneScope>("/scene-scopes");
 
         // Filter out comment fields (keys starting with underscore)
         const cleanedConfig: SceneScope = {

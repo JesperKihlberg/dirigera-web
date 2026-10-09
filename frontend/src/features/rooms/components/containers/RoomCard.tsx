@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { RoomCardUI } from "../ui/RoomCardUI";
 import { Scenes } from "@/features/scenes";
 import { DeviceControl, BatteryIndicator } from "@/features/devices";
+import { useRoomConfig } from "@/hooks";
 import type { Room, Device } from "@/graphql.types";
 
 interface RoomCardProps {
@@ -11,6 +12,8 @@ interface RoomCardProps {
 
 export function RoomCard({ room }: RoomCardProps) {
   const navigate = useNavigate();
+  const { getRoomConfig } = useRoomConfig();
+  const roomName = getRoomConfig(room.id)?.name ?? room.name;
 
   const handleNavigateToRoom = () => {
     navigate(`room/${room.id}`);
@@ -31,7 +34,7 @@ export function RoomCard({ room }: RoomCardProps) {
 
   return (
     <RoomCardUI
-      roomName={room.name}
+      roomName={roomName}
       devices={room.devices}
       onNavigateToRoom={handleNavigateToRoom}
       renderScenes={renderScenes}

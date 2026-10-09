@@ -115,6 +115,20 @@ Finally, start the server:
 npm start
 ```
 
+## Home server deployment
+
+The production instance never builds from a local checkout:
+
+1. A push to `master` runs `.github/workflows/publish.yaml`, which builds the image and publishes it to
+   `ghcr.io/jesperkihlberg/dirigera-web` as `:latest` and `:sha-<commit sha>`.
+2. On the server, `/srv/homelab/dirigera-web/` holds a copy of `deploy/docker-compose.yml` and an `.env.server`
+   (mode 600) with the environment variables above plus `DATABASE_URL`.
+3. Cron runs `/srv/homelab/bin/homelab-pull-deploy.sh` every 5 minutes, which pulls and restarts every stack under
+   `/srv/homelab/`.
+
+To roll back, set the image tag in the server's copy of the compose file to an earlier `sha-<commit sha>`. Changes to
+`deploy/docker-compose.yml` are not picked up automatically; copy it to the server folder after merging.
+
 ## Contributions
 
 The app was created mainly to serve my own needs, but I'm happy to accept contributions. If you have a device which is

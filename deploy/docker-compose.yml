@@ -1,0 +1,17 @@
+# Production stack. The image is built by CI (.github/workflows/publish.yaml)
+# and pulled from ghcr.io; this file is copied to /srv/homelab/dirigera-web/
+# on the server, next to .env.server (PASSWORD, ACCESS_TOKEN, GATEWAY_IP, ...).
+name: dirigera-web
+services:
+  dirigera-web:
+    image: ghcr.io/jesperkihlberg/dirigera-web:latest
+    container_name: dirigera-web
+    restart: unless-stopped
+    # Host network so the backend can reach the hub on the LAN.
+    network_mode: host
+    env_file: [.env.server]
+    volumes:
+      - device-images:/usr/src/app/backend/uploads/devices
+volumes:
+  device-images:
+    name: dirigera-web_device-images

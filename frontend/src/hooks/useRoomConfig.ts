@@ -1,7 +1,9 @@
 import { useEffect, useState, useMemo, createElement } from "react";
 import * as MdIcons from "react-icons/md";
+import { adminFetch } from "@/lib/adminApi";
 
 interface RoomSettings {
+  name?: string;
   icon?: string;
 }
 
@@ -10,12 +12,13 @@ interface RoomConfigData {
 }
 
 interface RoomConfig {
+  name?: string;
   icon?: string;
 }
 
 /**
- * Custom hook to load room configuration from /rooms.config.json
- * Provides room-specific settings like icons
+ * Custom hook to load room configuration from the admin API
+ * Provides room-specific settings like display name and icon
  */
 export function useRoomConfig() {
   const [config, setConfig] = useState<Record<string, RoomConfig>>({});
@@ -26,25 +29,16 @@ export function useRoomConfig() {
     const loadConfig = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/rooms.config.json");
-
-        if (!response.ok) {
-          console.info("No rooms config found, using defaults");
-          setConfig({});
-          setError(null);
-          setIsLoading(false);
-          return;
-        }
-
-        const data: RoomConfigData = await response.json();
+        const data = await adminFetch<RoomConfigData>("/room-config");
 
         // Build config from rooms object
         const roomConfig: Record<string, RoomConfig> = {};
         if (data.rooms) {
           Object.entries(data.rooms).forEach(([roomId, settings]) => {
-            if (settings.icon) {
+            if (settings.icon || settings.name) {
               roomConfig[roomId] = {
-                icon: settings.icon,
+                ...(settings.name ? { name: settings.name } : {}),
+                ...(settings.icon ? { icon: settings.icon } : {}),
               };
             }
           });

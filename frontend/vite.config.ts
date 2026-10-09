@@ -84,6 +84,10 @@ export default defineConfig({
         target,
         changeOrigin: true,
       },
+      "/api": {
+        target,
+        changeOrigin: true,
+      },
       "/websocket": {
         target,
         changeOrigin: true,
