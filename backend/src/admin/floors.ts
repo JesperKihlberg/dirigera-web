@@ -3,6 +3,13 @@ import type { DirigeraClient } from "dirigera";
 import type pg from "pg";
 import { getValidIds } from "./hubValidation.ts";
 
+// A bare SVG filename under frontend/public/floorplan/, or null for no plan.
+export function isValidFloorPlan(value: unknown): value is string | null {
+  return (
+    value === null || (typeof value === "string" && /^[\w-]+\.svg$/.test(value))
+  );
+}
+
 export function createFloorsRouter(client: DirigeraClient, pool: pg.Pool) {
   const router = express.Router();
 
@@ -13,6 +20,7 @@ export function createFloorsRouter(client: DirigeraClient, pool: pg.Pool) {
         f.name,
         f.short_name,
         f.sort_order,
+        f.floor_plan,
         COALESCE(array_agg(fr.room_id) FILTER (WHERE fr.room_id IS NOT NULL), '{}') AS rooms
       FROM floor f
       LEFT JOIN floor_room fr ON fr.floor_id = f.id
@@ -26,17 +34,23 @@ export function createFloorsRouter(client: DirigeraClient, pool: pg.Pool) {
         name: row.name,
         shortName: row.short_name,
         order: row.sort_order,
+        floorPlan: row.floor_plan,
         rooms: row.rooms,
       })),
     });
   });
 
   router.post("/floors", async (req, res) => {
-    const { name, shortName, order } = req.body;
+    const { name, shortName, order, floorPlan = null } = req.body;
+
+    if (!isValidFloorPlan(floorPlan)) {
+      res.status(400).json({ error: "Invalid floor plan" });
+      return;
+    }
 
     const result = await pool.query(
-      "INSERT INTO floor (name, short_name, sort_order) VALUES ($1, $2, $3) RETURNING id",
-      [name, shortName, order]
+      "INSERT INTO floor (name, short_name, sort_order, floor_plan) VALUES ($1, $2, $3, $4) RETURNING id",
+      [name, shortName, order, floorPlan]
     );
 
     res.json({ id: result.rows[0].id });
@@ -44,7 +58,12 @@ export function createFloorsRouter(client: DirigeraClient, pool: pg.Pool) {
 
   router.put("/floors/:id", async (req, res) => {
     const { id } = req.params;
-    const { name, shortName, order } = req.body;
+    const { name, shortName, order, floorPlan } = req.body;
+
+    if (floorPlan !== undefined && !isValidFloorPlan(floorPlan)) {
+      res.status(400).json({ error: "Invalid floor plan" });
+      return;
+    }
 
     const fields: string[] = [];
     const values: unknown[] = [];
@@ -60,6 +79,10 @@ export function createFloorsRouter(client: DirigeraClient, pool: pg.Pool) {
     if (order !== undefined) {
       values.push(order);
       fields.push(`sort_order = $${values.length}`);
+    }
+    if (floorPlan !== undefined) {
+      values.push(floorPlan);
+      fields.push(`floor_plan = $${values.length}`);
     }
 
     if (fields.length === 0) {
