@@ -14,6 +14,20 @@
   padding-top: var(--spacing-md);
   box-sizing: border-box;
   gap: var(--spacing-md);
+
+  /* The page snaps to floor sections (scroll-snap-type: y mandatory), so the
+     header must be a snap point too, or it can never be scrolled back into view. */
+  scroll-snap-align: start;
+}
+
+/* Keep logo, title, admin and logout on one line; the title wraps instead. */
+.row.layout-header {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.layout-header > .col {
+  min-width: 0;
 }
 
 .layout-header-container {
