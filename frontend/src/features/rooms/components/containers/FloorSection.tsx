@@ -89,7 +89,7 @@ const FloorSection: React.FC<FloorSectionProps> = ({ floorId, floorIndex }) => {
       isActive={isActive}
       iconSize={48}
       scenes={<Scenes scope="floor" scopeId={floor.id} wrapScenes={false} />}
-      floorPlan={<FloorPlan floorId={floor.id} scale={0.8} />}
+      floorPlan={<FloorPlan floorPlan={floor.floorPlan} scale={0.8} />}
       rooms={renderedRooms}
       onRefChange={handleRefChange}
     />

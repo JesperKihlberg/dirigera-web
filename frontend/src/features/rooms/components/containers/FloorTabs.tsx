@@ -53,6 +53,7 @@ export function FloorTabs({ rooms, columnSizes }: FloorTabsProps) {
         name: "Other",
         shortName: "Other",
         order: -1,
+        floorPlan: null,
         rooms: [],
       });
     }

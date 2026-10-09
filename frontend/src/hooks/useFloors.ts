@@ -6,6 +6,7 @@ export interface Floor {
   name: string;
   shortName: string;
   order: number;
+  floorPlan: string | null;
   rooms: string[];
 }
 

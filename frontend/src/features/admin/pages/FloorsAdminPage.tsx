@@ -24,7 +24,11 @@ interface FloorFormValues {
   name: string;
   shortName: string;
   order: number;
+  floorPlan?: string | null | undefined;
 }
+
+// SVGs shipped in frontend/public/floorplan/
+const FLOOR_PLANS = ["basement.svg", "ground.svg", "first.svg", "second.svg"];
 
 const FLOORS_KEY = ["admin", "floors"];
 
@@ -116,12 +120,15 @@ export function FloorsAdminPage() {
       name: floor.name,
       shortName: floor.shortName,
       order: floor.order,
+      floorPlan: floor.floorPlan ?? undefined,
     });
     setModalOpen(true);
   };
 
   const handleSubmit = async () => {
-    const values = await form.validateFields();
+    const formValues = await form.validateFields();
+    // A cleared Select is undefined, which JSON drops; send null to clear it.
+    const values = { ...formValues, floorPlan: formValues.floorPlan ?? null };
     if (editingFloor) {
       await updateMutation.mutateAsync({ id: editingFloor.id, values });
     } else {
@@ -137,6 +144,7 @@ export function FloorsAdminPage() {
     { title: "Name", dataIndex: "name", key: "name" },
     { title: "Short name", dataIndex: "shortName", key: "shortName" },
     { title: "Order", dataIndex: "order", key: "order" },
+    { title: "Floor plan", dataIndex: "floorPlan", key: "floorPlan" },
     {
       title: "Actions",
       key: "actions",
@@ -243,6 +251,16 @@ export function FloorsAdminPage() {
             rules={[{ required: true, message: "Order is required" }]}
           >
             <InputNumber style={{ width: "100%" }} />
+          </Form.Item>
+          <Form.Item name="floorPlan" label="Floor plan">
+            <Select
+              allowClear
+              placeholder="None"
+              options={FLOOR_PLANS.map((file) => ({
+                value: file,
+                label: file,
+              }))}
+            />
           </Form.Item>
         </Form>
       </Modal>
