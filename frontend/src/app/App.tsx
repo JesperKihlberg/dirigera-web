@@ -24,6 +24,13 @@ const router = createHashRouter([
         },
       },
       {
+        path: "mobile",
+        lazy: async () => {
+          const { MobilePage } = await import("./pages/MobilePage");
+          return { Component: MobilePage };
+        },
+      },
+      {
         path: "admin",
         element: <Navigate to="/admin/floors" replace />,
       },
