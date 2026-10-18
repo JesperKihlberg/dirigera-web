@@ -32,43 +32,51 @@ const router = createHashRouter([
       },
       {
         path: "admin",
-        element: <Navigate to="/admin/floors" replace />,
-      },
-      {
-        path: "admin/floors",
         lazy: async () => {
-          const { FloorsAdminPage } = await import(
-            "@/features/admin/pages/FloorsAdminPage"
+          const { AdminLayout } = await import(
+            "@/features/admin/components/AdminLayout"
           );
-          return { Component: FloorsAdminPage };
+          return { Component: AdminLayout };
         },
-      },
-      {
-        path: "admin/rooms",
-        lazy: async () => {
-          const { RoomsAdminPage } = await import(
-            "@/features/admin/pages/RoomsAdminPage"
-          );
-          return { Component: RoomsAdminPage };
-        },
-      },
-      {
-        path: "admin/scenes",
-        lazy: async () => {
-          const { ScenesAdminPage } = await import(
-            "@/features/admin/pages/ScenesAdminPage"
-          );
-          return { Component: ScenesAdminPage };
-        },
-      },
-      {
-        path: "admin/devices",
-        lazy: async () => {
-          const { DevicePhotosAdminPage } = await import(
-            "@/features/admin/pages/DevicePhotosAdminPage"
-          );
-          return { Component: DevicePhotosAdminPage };
-        },
+        children: [
+          { index: true, element: <Navigate to="/admin/floors" replace /> },
+          {
+            path: "floors",
+            lazy: async () => {
+              const { FloorsAdminPage } = await import(
+                "@/features/admin/pages/FloorsAdminPage"
+              );
+              return { Component: FloorsAdminPage };
+            },
+          },
+          {
+            path: "rooms",
+            lazy: async () => {
+              const { RoomsAdminPage } = await import(
+                "@/features/admin/pages/RoomsAdminPage"
+              );
+              return { Component: RoomsAdminPage };
+            },
+          },
+          {
+            path: "scenes",
+            lazy: async () => {
+              const { ScenesAdminPage } = await import(
+                "@/features/admin/pages/ScenesAdminPage"
+              );
+              return { Component: ScenesAdminPage };
+            },
+          },
+          {
+            path: "devices",
+            lazy: async () => {
+              const { DevicePhotosAdminPage } = await import(
+                "@/features/admin/pages/DevicePhotosAdminPage"
+              );
+              return { Component: DevicePhotosAdminPage };
+            },
+          },
+        ],
       },
     ],
   },
@@ -81,4 +89,3 @@ export function App() {
     </Providers>
   );
 }
-

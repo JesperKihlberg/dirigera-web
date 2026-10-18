@@ -1,0 +1,4 @@
+/* antd's default tab text is dark; match the app's dark theme */
+.admin-tabs .ant-tabs-tab {
+  color: var(--color-text-secondary);
+}
