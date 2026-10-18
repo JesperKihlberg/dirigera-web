@@ -16,8 +16,14 @@ body {
   color: var(--color-text-primary);
   line-height: var(--line-height-normal);
   font-size: var(--font-size-base);
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+}
+
+/* Snap to floor sections, only on pages that have them. Elsewhere (admin,
+   #/mobile) the header is the only snap point and pulls the page back up. */
+html:has(.floor-section),
+body:has(.floor-section) {
+  scroll-snap-type: y mandatory;
 }
 
 #root {
