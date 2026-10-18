@@ -1,5 +1,14 @@
+/* The global scroll-snap (y mandatory, for the floor sections) has no snap
+   points on this page except the header, so it pulled the page back up. */
+html:has(.mobile-page),
+body:has(.mobile-page) {
+  scroll-snap-type: none;
+}
+
+/* Room cards are only as wide as their tiles and wrap side by side. */
 .mobile-page {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: var(--spacing-sm);
 }

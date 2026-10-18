@@ -38,7 +38,7 @@ export function MobileRoomCardUI({
           {roomIcon && (
             <span className="mobile-room-card-icon">{roomIcon}</span>
           )}
-          {roomName}
+          <span className="mobile-room-card-name">{roomName}</span>
         </span>
       }
       extra={
