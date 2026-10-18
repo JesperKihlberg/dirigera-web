@@ -1,0 +1,29 @@
+.mobile-room-card .card-header {
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.mobile-room-card .card-body {
+  padding: var(--spacing-sm);
+}
+
+.mobile-room-card .card-title {
+  font-size: var(--font-size-sm);
+}
+
+.mobile-room-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.mobile-room-card-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
+.mobile-room-card-devices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: var(--spacing-sm) var(--spacing-xs);
+}
