@@ -1,6 +1,5 @@
 .mobile-room-card {
-  flex: 0 1 auto;
-  max-width: 100%;
+  min-width: 0;
 }
 
 /* The header must not widen the card: the card's width comes from its tiles,
@@ -41,11 +40,7 @@
 }
 
 .mobile-room-card-devices {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
   gap: var(--spacing-sm) var(--spacing-xs);
-}
-
-.mobile-room-card-devices > .device-tile {
-  width: 68px;
 }

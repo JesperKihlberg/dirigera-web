@@ -5,10 +5,12 @@ body:has(.mobile-page) {
   scroll-snap-type: none;
 }
 
-/* Room cards are only as wide as their tiles and wrap side by side. */
+/* Each room card spans one column per light (see MobileRoomCardUI). Dense
+   packing lets small rooms fill the gaps, so rows fill the screen width. */
 .mobile-page {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+  grid-auto-flow: row dense;
+  align-items: start;
   gap: var(--spacing-xs);
 }

@@ -30,9 +30,14 @@ export function MobileRoomCardUI({
 
   const allReachable = toggleableDevices.every((device) => device.isReachable);
 
+  // One grid column per light on the mobile page; 4+ lights take a full row
+  const gridColumn =
+    devices.length >= 4 ? "1 / -1" : `span ${Math.max(devices.length, 1)}`;
+
   return (
     <Card
       className="mobile-room-card"
+      style={{ gridColumn }}
       title={
         <span className="mobile-room-card-title">
           {roomIcon && (
