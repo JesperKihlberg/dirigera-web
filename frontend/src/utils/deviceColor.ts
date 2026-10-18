@@ -60,7 +60,11 @@ export function calculateDeviceColor(
   if (colorTemperature !== undefined) {
     // Map temperature to a warm-to-cool gradient
     // 2202K = warm orange, 4000K = cool blue
-    const normalized = (colorTemperature - 2202) / (4000 - 2202);
+    // Clamped: some bulbs report values outside this range (e.g. 2183K)
+    const normalized = Math.min(
+      1,
+      Math.max(0, (colorTemperature - 2202) / (4000 - 2202))
+    );
 
     // Warm (orange) to neutral (white) to cool (blue)
     if (normalized < 0.5) {

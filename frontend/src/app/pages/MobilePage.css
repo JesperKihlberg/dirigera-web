@@ -1,0 +1,16 @@
+/* The global scroll-snap (y mandatory, for the floor sections) has no snap
+   points on this page except the header, so it pulled the page back up. */
+html:has(.mobile-page),
+body:has(.mobile-page) {
+  scroll-snap-type: none;
+}
+
+/* Each room card spans one column per light (see MobileRoomCardUI). Dense
+   packing lets small rooms fill the gaps, so rows fill the screen width. */
+.mobile-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+  grid-auto-flow: row dense;
+  align-items: start;
+  gap: var(--spacing-xs);
+}

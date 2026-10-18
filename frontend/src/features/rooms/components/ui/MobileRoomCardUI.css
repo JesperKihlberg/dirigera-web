@@ -1,0 +1,46 @@
+.mobile-room-card {
+  min-width: 0;
+}
+
+/* The header must not widen the card: the card's width comes from its tiles,
+   and a long room name is cut off with an ellipsis. */
+.mobile-room-card .card-header {
+  width: 0;
+  min-width: 100%;
+  padding: var(--spacing-xs);
+}
+
+.mobile-room-card .card-body {
+  padding: var(--spacing-xs);
+}
+
+.mobile-room-card .card-title {
+  min-width: 0;
+  font-size: var(--font-size-xs);
+}
+
+.mobile-room-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-width: 0;
+}
+
+.mobile-room-card-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+}
+
+.mobile-room-card-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-room-card-devices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+  gap: var(--spacing-sm) var(--spacing-xs);
+}
