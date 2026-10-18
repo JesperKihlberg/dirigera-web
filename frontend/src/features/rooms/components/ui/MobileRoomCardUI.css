@@ -1,6 +1,5 @@
 .mobile-room-card {
   flex: 0 1 auto;
-  min-width: 156px;
   max-width: 100%;
 }
 
@@ -9,16 +8,16 @@
 .mobile-room-card .card-header {
   width: 0;
   min-width: 100%;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xs);
 }
 
 .mobile-room-card .card-body {
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xs);
 }
 
 .mobile-room-card .card-title {
   min-width: 0;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
 
 .mobile-room-card-title {

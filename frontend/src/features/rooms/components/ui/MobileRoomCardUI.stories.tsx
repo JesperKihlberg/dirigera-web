@@ -80,6 +80,14 @@ export const AllOn: Story = {
   },
 };
 
+export const SingleLight: Story = {
+  args: {
+    roomName: "Bedroom",
+    roomIcon: <MdLiving />,
+    devices: [device(1, { name: "Ceiling" })],
+  },
+};
+
 export const ToggleLoading: Story = {
   args: {
     ...Default.args,

@@ -10,5 +10,5 @@ body:has(.mobile-page) {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
 }

@@ -42,7 +42,8 @@ export function MobileRoomCardUI({
         </span>
       }
       extra={
-        toggleableDevices.length > 0 && onToggleAllLamps ? (
+        // A single light is toggled by tapping its tile
+        toggleableDevices.length > 1 && onToggleAllLamps ? (
           <Switch
             checked={allLampsOn}
             disabled={!allReachable || toggleAllLampsLoading}
