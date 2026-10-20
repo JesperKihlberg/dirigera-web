@@ -39,8 +39,27 @@
   white-space: nowrap;
 }
 
+/* Small wrapping scene buttons above the tiles (only when scenes are passed) */
+.mobile-room-card-scenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.mobile-room-card-scenes .scene-button {
+  width: auto;
+  min-height: 0;
+  padding: 2px var(--spacing-sm);
+  font-size: var(--font-size-xs);
+}
+
+/* --mobile-tile-min-width lets a page (e.g. #/tablet) make the tiles larger */
 .mobile-room-card-devices {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--mobile-tile-min-width, 68px), 1fr)
+  );
   gap: var(--spacing-sm) var(--spacing-xs);
 }

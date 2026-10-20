@@ -88,6 +88,20 @@ export const SingleLight: Story = {
   },
 };
 
+export const WithScenes: Story = {
+  args: {
+    roomName: "Living Room",
+    roomIcon: <MdLiving />,
+    devices: livingRoomDevices.slice(0, 3),
+    scenes: [
+      { id: "scene-1", name: "Evening" },
+      { id: "scene-2", name: "Movie" },
+      { id: "scene-3", name: "Cleaning" },
+    ],
+    onActivateScene: fn(),
+  },
+};
+
 export const ToggleLoading: Story = {
   args: {
     ...Default.args,
