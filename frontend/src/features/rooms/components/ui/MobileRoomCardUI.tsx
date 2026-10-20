@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "@/components/ui";
 import { Switch } from "@/components/ui/Switch";
 import { DeviceTile } from "@/features/devices/components/containers/DeviceTile";
+import { SceneButton } from "@/features/scenes/components/ui/SceneButton";
 import type { Device } from "@/graphql.types";
 import "./MobileRoomCardUI.css";
 
@@ -11,6 +12,9 @@ interface MobileRoomCardUIProps {
   devices: Device[];
   onToggleAllLamps?: (isOn: boolean) => void;
   toggleAllLampsLoading?: boolean;
+  scenes?: Array<{ id: string; name: string }> | undefined;
+  onActivateScene?: ((sceneId: string) => void) | undefined;
+  activeSceneId?: string | null | undefined;
 }
 
 export function MobileRoomCardUI({
@@ -19,6 +23,9 @@ export function MobileRoomCardUI({
   devices,
   onToggleAllLamps,
   toggleAllLampsLoading = false,
+  scenes = [],
+  onActivateScene,
+  activeSceneId,
 }: MobileRoomCardUIProps) {
   const toggleableDevices = devices.filter(
     (device) => device.isOn !== null && device.isOn !== undefined
@@ -57,6 +64,18 @@ export function MobileRoomCardUI({
         ) : null
       }
     >
+      {scenes.length > 0 && onActivateScene && (
+        <div className="mobile-room-card-scenes">
+          {scenes.map((scene) => (
+            <SceneButton
+              key={scene.id}
+              name={scene.name}
+              onClick={() => onActivateScene(scene.id)}
+              loading={activeSceneId === scene.id}
+            />
+          ))}
+        </div>
+      )}
       <div className="mobile-room-card-devices">
         {devices.map((device) => (
           <DeviceTile key={device.id} device={device} />

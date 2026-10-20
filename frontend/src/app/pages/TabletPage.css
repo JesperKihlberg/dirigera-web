@@ -1,0 +1,33 @@
+/* All floors on one screen. The page is embedded in the home hub's iframe,
+   so no 100vh, no fixed/sticky elements, and no .floor-section (which would
+   switch scroll-snap back on). */
+.tablet-page {
+  /* Larger tiles than on #/mobile (50px image, 68px column) */
+  --device-image-size: 4rem; /* 64px */
+  --mobile-tile-min-width: 82px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+}
+
+.tablet-floor-name {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+/* Masonry: CSS columns pack cards of different heights with no gaps */
+.tablet-floor-rooms {
+  columns: 200px;
+  column-gap: var(--spacing-xs);
+}
+
+.tablet-floor-rooms > .mobile-room-card {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin-bottom: var(--spacing-xs);
+}
