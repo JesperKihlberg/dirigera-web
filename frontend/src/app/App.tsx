@@ -1,6 +1,13 @@
 import React from "react";
-import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
+import {
+  createHashRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import { RootLayout } from "./RootLayout";
+import { AppLayout } from "./AppLayout";
+import { AuthenticatedContent } from "./AuthenticatedContent";
 import { Providers } from "./Providers";
 import "@/styles/global.css";
 
@@ -77,6 +84,27 @@ const router = createHashRouter([
             },
           },
         ],
+      },
+    ],
+  },
+  {
+    // The iPad page has no sticky header: it hangs on the wall and is
+    // embedded in the home hub's iframe.
+    path: "/tablet",
+    element: (
+      <AppLayout>
+        <AuthenticatedContent>
+          <Outlet />
+        </AuthenticatedContent>
+      </AppLayout>
+    ),
+    children: [
+      {
+        index: true,
+        lazy: async () => {
+          const { TabletPage } = await import("./pages/TabletPage");
+          return { Component: TabletPage };
+        },
       },
     ],
   },
