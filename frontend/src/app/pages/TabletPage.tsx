@@ -39,8 +39,7 @@ export function TabletPage() {
       key,
       name: floor?.name ?? "Other",
       rooms: floorRooms.filter(
-        (room) =>
-          visibleDevices(room).length > 0 || roomScenes(room).length > 0
+        (room) => visibleDevices(room).length > 0 || roomScenes(room).length > 0
       ),
     }))
     .filter((group) => group.rooms.length > 0);
